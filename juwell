@@ -1,0 +1,35 @@
+A([Start]) --> B[/Enter student's name/]
+B --> C[/Enter grade/]
+C --> D {Is grade 0-100?}
+
+D -->|No| E[Show Invalid Grade]
+E --> F[enter grade again]
+F --> D
+
+D --> |Yes| G{Grade >= 90?}
+
+G --> |Yes| H[Grade = A]
+G --> |No| I{Grade >= 80?}
+
+I --> |Yes| J[Grade = B]
+I --> |No| K{Grade >= 70?}
+
+K --> |Yes|  L[Grade = C]
+K --> |No| M{Grade >= 60?}
+
+M --> |Yes| N[Grade = D]
+M --> |No| O[Grade = F]
+
+H --> P[Display Letter Grade]
+J --> P
+L --> P
+N --> P
+O --> P
+
+P --> Q{Did student pass?}
+
+Q -->|Yes| R[Display Passed]
+Q --> |No| S[Display Failed
+
+R --> T([End])
+S =--> T
